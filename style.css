@@ -11,10 +11,6 @@
     width: 25px;
 }
 
-* {
-    box-sizing: border-box;
-}
-  
-.container>div:nth-child((16n + 1)) {
-    width: 100% !important;
+div:hover {
+    background-color: aqua;
 }
