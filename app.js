@@ -1,4 +1,13 @@
 const container = document.querySelector(".container")
-let i=0, n=16;
 
-container.innerHTML =  `<div class="row">${'<div class="cell">X</div>'.repeat(n)}</div>`.repeat(n).replace(/X/g,_=> (i++).toString(n) );
+function createRows(rows, cols) {
+    container.style.setProperty('.row', rows);
+    container.style.setProperty('.cell', cols);
+    for (c = 0; c < (rows * cols); c++) {
+      let cell = document.createElement("div");
+      cell.textContent = (c + 1);
+      container.appendChild(cell).className = "grid-item";
+    };
+};
+  
+createRows(16, 16);
