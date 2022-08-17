@@ -1,4 +1,4 @@
-const container = document.querySelector(".container")
+const container = document.querySelector(".container");
 
 function createCanvas(rowVcol) {
     for (let i = 0; i < (rowVcol * rowVcol); i++) {
@@ -10,11 +10,18 @@ function createCanvas(rowVcol) {
             div.classList.add(".container>div");
         }
 
-        div.addEventListener('mouseover', () => { div.classList.add('divHover');});
+        div.addEventListener('mouseover', () => { div.classList.add('divHover'); });
         
         container.appendChild(div);
     }
 }
 
-  
-createCanvas(16);
+function main() {
+    createCanvas(16);
+    if (document. getElementById('grow').clicked == true) {
+        let increase = Number(prompt("Enter the size of your grid (< 100):"));
+        createCanvas(increase);
+    }
+}
+
+main();
