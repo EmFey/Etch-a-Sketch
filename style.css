@@ -11,6 +11,6 @@
     width: 25px;
 }
 
-div:hover {
+.divHover {
     background-color: aqua;
 }

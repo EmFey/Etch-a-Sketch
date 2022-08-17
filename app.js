@@ -1,7 +1,5 @@
 const container = document.querySelector(".container")
 
-
-
 function createCanvas(rowVcol) {
     for (let i = 0; i < (rowVcol * rowVcol); i++) {
         const div = document.createElement('div');
@@ -10,9 +8,13 @@ function createCanvas(rowVcol) {
             div.style.cssText = "border: 0; height: 0; width: 100%;";
           } else {
             div.classList.add(".container>div");
-        } 
+        }
+
+        div.addEventListener('mouseover', () => { div.classList.add('divHover');});
+        
         container.appendChild(div);
     }
 }
+
   
 createCanvas(16);
