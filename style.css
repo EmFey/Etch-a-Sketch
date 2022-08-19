@@ -3,13 +3,15 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin: 10px;
 }
 
 .configure {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
+    background-color: black;
 }
 
 .container>div {
@@ -28,6 +30,16 @@
     border: none;
     border-radius: 7px;
     padding: 10px;
+    font-weight: bolder;
+    color: black;
+    background-color: aqua;
+}
+
+.resetGrid {
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 10px;
     font-weight: bolder;
     color: black;
     background-color: aqua;
