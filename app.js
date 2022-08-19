@@ -20,6 +20,7 @@ function createCanvas(rowVcol) {
 }
 
 function expandGrid() {
+    container.innerText = "";
     let increase = Number(prompt("Enter the size of your grid (< 100):"));
     createCanvas(increase);
 }
