@@ -5,12 +5,30 @@
     flex-wrap: wrap;
 }
 
+.configure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
 .container>div {
     border: 1px solid black;
     height: 25px;
     width: 25px;
+    box-sizing: border-box;
+    display: inline-block;
 }
 
 .divHover {
+    background-color: aqua;
+}
+
+.growGrid {
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    font-weight: bolder;
+    color: black;
     background-color: aqua;
 }
