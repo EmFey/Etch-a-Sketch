@@ -1,4 +1,7 @@
 const container = document.querySelector(".container");
+const btn = document. querySelector('.growGrid');
+
+btn.addEventListener("click", expandGrid);
 
 function createCanvas(rowVcol) {
     for (let i = 0; i < (rowVcol * rowVcol); i++) {
@@ -16,12 +19,9 @@ function createCanvas(rowVcol) {
     }
 }
 
-function main() {
-    createCanvas(16);
-    if (document. getElementById('grow').clicked == true) {
-        let increase = Number(prompt("Enter the size of your grid (< 100):"));
-        createCanvas(increase);
-    }
+function expandGrid() {
+    let increase = Number(prompt("Enter the size of your grid (< 100):"));
+    createCanvas(increase);
 }
 
-main();
+createCanvas(16);
