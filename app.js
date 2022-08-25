@@ -13,25 +13,17 @@ function createCanvas(rowVcol) {
 
     for (let i = 0; i < (rowVcol * rowVcol); i++) {
         const div = document.createElement('div');
-        
-        if (i % (rowVcol + 1) === 0) {
-            div.style.cssText = "border: 0; height: 0; width: 100%;";
-          } else {
-            div.classList.add(".container>div");
-        }
+
 
         div.addEventListener('mouseover', () => { div.classList.add('divHover'); });
         
-        container.appendChild(div);
+        container.insertAdjacentElement("beforeend", div);
     }
 }
 
 function expandGrid() {
     container.innerText = "";
     let increase = Number(prompt("Enter the size of your grid (< 100):"));
-    div.style.width = "100%";
-    let height = 400 / parseInt(increse);  
-    div.style.height = `${height}px`; 
     createCanvas(increase);
 }
 
