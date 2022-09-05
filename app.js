@@ -36,12 +36,16 @@ function resetGrid() {
     createCanvas(16);
 }
 
-function randomColor(params) {
-    
+function randomColor() {
+    const gridSquares = document.querySelectorAll('.container > div');
+    gridSquares.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
 }
 
-function eraseColor(params) {
-    
+function eraseColor() {
+    const gridSquares = document.querySelectorAll('.container > div');
+
+    gridSquares.addEventListener('mouseover', () => { div.classList.add('erasorColors') });
+
 }
 
 createCanvas(16);

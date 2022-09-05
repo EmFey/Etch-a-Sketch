@@ -43,6 +43,10 @@
     background-color: aqua;
 }
 
+.erasorColors {
+    background-color: white;
+}
+
 .growGrid, .resetGrid, .random, .erase {
     border: none;
     border-radius: 7px;
