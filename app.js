@@ -6,6 +6,8 @@ const btnErasor = document.querySelector(".erase");
 
 btnAdd.addEventListener("click", expandGrid);
 btnReset.addEventListener("click", resetGrid);
+btnRandom.addEventListener("click", randomColor);
+btnErasor.addEventListener("click", eraseColor);
 
 function createCanvas(rowVcol) {
     let squares = container.querySelectorAll("div");
@@ -32,6 +34,14 @@ function expandGrid() {
 function resetGrid() {
     container.innerText = "";
     createCanvas(16);
+}
+
+function randomColor(params) {
+    
+}
+
+function eraseColor(params) {
+    
 }
 
 createCanvas(16);
