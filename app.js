@@ -1,6 +1,8 @@
 const container = document.querySelector(".container");
-const btnAdd = document. querySelector(".growGrid");
+const btnAdd = document.querySelector(".growGrid");
 const btnReset = document.querySelector(".resetGrid");
+const btnRandom = document.querySelector(".random");
+const btnErasor = document.querySelector(".erase");
 
 btnAdd.addEventListener("click", expandGrid);
 btnReset.addEventListener("click", resetGrid);
