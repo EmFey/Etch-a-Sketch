@@ -3,11 +3,12 @@ const btnAdd = document.querySelector(".growGrid");
 const btnReset = document.querySelector(".resetGrid");
 const btnRandom = document.querySelector(".random");
 const btnErasor = document.querySelector(".erase");
+const cColor = document.querySelector("#col");
 
 btnAdd.addEventListener("click", expandGrid);
 btnReset.addEventListener("click", resetGrid);
-btnRandom.addEventListener("click", randomColor);
 btnErasor.addEventListener("click", eraseColor);
+//cColor.addEventListener("change", changeColor);
 
 function createCanvas(rowVcol) {
     let squares = container.querySelectorAll("div");
@@ -17,10 +18,7 @@ function createCanvas(rowVcol) {
 
     for (let i = 0; i < (rowVcol * rowVcol); i++) {
         const div = document.createElement('div');
-
-
         div.addEventListener('mouseover', () => { div.classList.add('divHover'); });
-        
         container.insertAdjacentElement("beforeend", div);
     }
 }
@@ -36,16 +34,14 @@ function resetGrid() {
     createCanvas(16);
 }
 
-function randomColor() {
+function changeColor() {
     const gridSquares = document.querySelectorAll('.container > div');
-    gridSquares.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    gridSquares.style.backgroundColor = cColor.value;
 }
 
 function eraseColor() {
     const gridSquares = document.querySelectorAll('.container > div');
-
     gridSquares.addEventListener('mouseover', () => { div.classList.add('erasorColors') });
-
 }
 
 createCanvas(16);

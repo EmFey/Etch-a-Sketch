@@ -1,3 +1,11 @@
+html, body {
+    margin: 0%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .gridArea {
     display: flex;
     justify-content: center;
@@ -9,7 +17,7 @@
     max-width: 600px;
     max-height: 600px;
     margin: 10px;
-    border: 5px solid burlywood;
+    border: 5px solid aqua;
 }
 
 .container {
@@ -34,6 +42,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
     padding: 10px;
     background-color: black;
     color: white;
