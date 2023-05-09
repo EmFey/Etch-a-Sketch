@@ -7,10 +7,16 @@ const cColor = document.querySelector("#col");
 
 btnAdd.addEventListener("click", expandGrid);
 btnReset.addEventListener("click", resetGrid);
-btnErasor.addEventListener("click", eraseColor);
+btnErasor.addEventListener("click", toggleEraser);
+container.addEventListener('mouseover', eraseColor);
 //cColor.addEventListener("change", changeColor);
 
 let isErasing = false;
+
+function toggleEraser() {
+    isErasing= !isErasing;
+    btnErasor.textContent = isEraserEnabled ? "Disable Eraser" : "Enable Eraser";
+}
 
 function createCanvas(rowVcol) {
     let squares = container.querySelectorAll("div");
@@ -26,9 +32,9 @@ function createCanvas(rowVcol) {
             } else {
               div.classList.add('erasorColors');
             }
-          });
-          container.insertAdjacentElement("beforeend", div);
-        }
+        });
+        container.insertAdjacentElement("beforeend", div);
+    }
 }
 
 function expandGrid() {
@@ -47,8 +53,12 @@ function changeColor() {
     gridSquares.style.backgroundColor = cColor.value;
 }
 
-function eraseColor() {
-    isErasing = true;
+function eraseColor(e) {
+    if (isEraserEnabled) {
+      e.target.style.backgroundColor = "";
+    } else {
+      e.target.classList.add("divHover");
+    }
 }
 
 createCanvas(16);
