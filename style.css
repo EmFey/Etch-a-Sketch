@@ -45,7 +45,7 @@ html, body {
 }
 
 .erasorColors {
-    background-color: white;
+    background-color: white !important;
 }
 
 .growGrid, .resetGrid, .random, .erase {

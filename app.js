@@ -10,6 +10,8 @@ btnReset.addEventListener("click", resetGrid);
 btnErasor.addEventListener("click", eraseColor);
 //cColor.addEventListener("change", changeColor);
 
+let isErasing = false;
+
 function createCanvas(rowVcol) {
     let squares = container.querySelectorAll("div");
     squares.forEach((div) => div.remove());
@@ -18,9 +20,15 @@ function createCanvas(rowVcol) {
 
     for (let i = 0; i < (rowVcol * rowVcol); i++) {
         const div = document.createElement('div');
-        div.addEventListener('mouseover', () => { div.classList.add('divHover'); });
-        container.insertAdjacentElement("beforeend", div);
-    }
+        div.addEventListener('mouseover', () => {
+            if (!isErasing) {
+              div.classList.add('divHover');
+            } else {
+              div.classList.add('erasorColors');
+            }
+          });
+          container.insertAdjacentElement("beforeend", div);
+        }
 }
 
 function expandGrid() {
@@ -40,8 +48,7 @@ function changeColor() {
 }
 
 function eraseColor() {
-    const gridSquares = document.querySelectorAll('.container > div');
-    gridSquares.addEventListener('mouseover', () => { div.classList.add('erasorColors') });
+    isErasing = true;
 }
 
 createCanvas(16);
