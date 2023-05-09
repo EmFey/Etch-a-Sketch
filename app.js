@@ -1,64 +1,74 @@
 const container = document.querySelector(".container");
+const colorPicker = document.querySelector("#co");
 const btnAdd = document.querySelector(".growGrid");
 const btnReset = document.querySelector(".resetGrid");
 const btnRandom = document.querySelector(".random");
-const btnErasor = document.querySelector(".erase");
-const cColor = document.querySelector("#col");
+const btnEraser = document.querySelector(".erase");
+let isMouseDown = false;
+let currentColor = colorPicker.value;
 
 btnAdd.addEventListener("click", expandGrid);
 btnReset.addEventListener("click", resetGrid);
-btnErasor.addEventListener("click", toggleEraser);
-container.addEventListener('mouseover', eraseColor);
-//cColor.addEventListener("change", changeColor);
-
-let isErasing = false;
-
-function toggleEraser() {
-    isErasing= !isErasing;
-    btnErasor.textContent = isEraserEnabled ? "Disable Eraser" : "Enable Eraser";
-}
+btnEraser.addEventListener("click", toggleEraser);
+colorPicker.addEventListener("change", changeColor);
 
 function createCanvas(rowVcol) {
-    let squares = container.querySelectorAll("div");
-    squares.forEach((div) => div.remove());
-    container.style.gridTemplateColumns = `repeat(${rowVcol} , 1fr)`;
-    container.style.gridTemplateRows = `repeat(${rowVcol} , 1fr)`;
+  let squares = container.querySelectorAll("div");
+  squares.forEach((div) => div.remove());
+  container.style.gridTemplateColumns = `repeat(${rowVcol}, 1fr)`;
+  container.style.gridTemplateRows = `repeat(${rowVcol}, 1fr)`;
 
-    for (let i = 0; i < (rowVcol * rowVcol); i++) {
-        const div = document.createElement('div');
-        div.addEventListener('mouseover', () => {
-            if (!isErasing) {
-              div.classList.add('divHover');
-            } else {
-              div.classList.add('erasorColors');
-            }
-        });
-        container.insertAdjacentElement("beforeend", div);
+  for (let i = 0; i < rowVcol * rowVcol; i++) {
+    const div = document.createElement("div");
+    container.insertAdjacentElement("beforeend", div);
+  }
+
+  // Add event listeners for painting the divs
+  container.addEventListener("mousedown", (event) => {
+    isMouseDown = true;
+    paintDiv(event.target);
+  });
+
+  container.addEventListener("mousemove", (event) => {
+    if (isMouseDown) {
+      paintDiv(event.target);
     }
+  });
+
+  container.addEventListener("mouseup", () => {
+    isMouseDown = false;
+  });
 }
 
 function expandGrid() {
-    container.innerText = "";
-    let increase = Number(prompt("Enter the size of your grid (< 100):"));
-    createCanvas(increase);
+  container.innerText = "";
+  let increase = Number(prompt("Enter the size of your grid (< 100):"));
+  createCanvas(increase);
 }
 
 function resetGrid() {
-    container.innerText = "";
-    createCanvas(16);
+  container.innerText = "";
+  createCanvas(16);
 }
 
-function changeColor() {
-    const gridSquares = document.querySelectorAll('.container > div');
-    gridSquares.style.backgroundColor = cColor.value;
+function changeColor(event) {
+  currentColor = event.target.value;
 }
 
-function eraseColor(e) {
-    if (isEraserEnabled) {
-      e.target.style.backgroundColor = "";
-    } else {
-      e.target.classList.add("divHover");
-    }
+function toggleEraser() {
+  if (btnEraser.classList.contains("active")) {
+    btnEraser.classList.remove("active");
+  } else {
+    btnEraser.classList.add("active");
+  }
+}
+
+function paintDiv(div) {
+  if (btnEraser.classList.contains("active")) {
+    div.style.backgroundColor = "";
+  } else {
+    div.style.backgroundColor = currentColor;
+  }
 }
 
 createCanvas(16);
