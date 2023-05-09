@@ -48,7 +48,7 @@ html, body {
     background-color: white !important;
 }
 
-.growGrid, .resetGrid, .random, .erase {
+.growGrid, .resetGrid, .erase {
     border: none;
     border-radius: 7px;
     padding: 10px;
@@ -56,4 +56,28 @@ html, body {
     font-weight: bolder;
     color: black;
     background-color: aqua;
+}
+
+.growGrid:hover, .resetGrid:hover, .erase:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
+}
+
+.growGrid:active, .resetGrid:active, .erase:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.growGrid::after, .resetGrid::after, .erase::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
 }
